@@ -1,0 +1,647 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lo",
+				"logData"
+			],
+			[
+				"co",
+				"counter"
+			],
+			[
+				"ma",
+				"markerTo"
+			],
+			[
+				"re",
+				"required"
+			],
+			[
+				"cle",
+				"clearInterval"
+			],
+			[
+				"ca",
+				"catch"
+			],
+			[
+				"geo",
+				"geometry"
+			],
+			[
+				"coo",
+				"coordinates"
+			],
+			[
+				"sele",
+				"selectedFeature"
+			],
+			[
+				"ci",
+				"cityPage"
+			],
+			[
+				"dat",
+				"data-ng-change"
+			],
+			[
+				"for",
+				"form-group"
+			],
+			[
+				"c",
+				"config"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"zone",
+				"zone_id"
+			],
+			[
+				"coord",
+				"coordinates"
+			],
+			[
+				"city",
+				"city_id"
+			],
+			[
+				"par",
+				"paramsArr"
+			],
+			[
+				"ym",
+				"ymRoute"
+			],
+			[
+				"dr",
+				"drawnItems"
+			],
+			[
+				"on",
+				"onEachFeature"
+			],
+			[
+				"zo",
+				"zones"
+			],
+			[
+				"pals",
+				"placesIds"
+			],
+			[
+				"pl",
+				"places"
+			],
+			[
+				"mar",
+				"markers"
+			],
+			[
+				"la",
+				"layers"
+			],
+			[
+				"a",
+				"attrs"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 380.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/vadim/Web/polymer-elements/yalo-guage"
+	],
+	"file_history":
+	[
+		"/Users/vadim/Web/ubik-gauge/demo.html",
+		"/Users/vadim/Web/ubik-gauge/.bowerrc",
+		"/Users/vadim/Web/map/traffic/jam.html",
+		"/Users/vadim/Web/map/traffic/get.js",
+		"/Users/vadim/Web/map/client/app/app.js",
+		"/Users/vadim/Web/map/bower.json",
+		"/Users/vadim/Web/map/client/app/city-zone/city-zone.jade",
+		"/Users/vadim/Web/map/client/app/city-zone/city-zone.controller.js",
+		"/Users/vadim/Web/map/client/index.html",
+		"/Users/vadim/Downloads/Fonts/playfair-display/playfair-display-regular.less.css",
+		"/Users/vadim/Downloads/Fonts/playfair-display/playfair-display-italic.less.css",
+		"/Users/vadim/Downloads/Fonts/playfair-display/playfair-display-bold.less.css",
+		"/Users/vadim/Downloads/Fonts/playfair-display/playfair-display-bold-italic.less.css",
+		"/Users/vadim/Downloads/ef_conv_zip_h3DF43jyuGZeml7XmIVJcAeF/PlayfairDisplayRegular.css",
+		"/Users/vadim/Web/map/traffic/traffic.html",
+		"/Users/vadim/Web/map/traffic/trafficpoint.html",
+		"/Users/vadim/Web/map/client/app/city/city.controller.js",
+		"/Users/vadim/Web/map/client/components/navbar/navbar.controller.js",
+		"/Users/vadim/Web/map/client/components/navbar/navbar.jade",
+		"/Users/vadim/Web/map/old stuff/components/zone/zone.service.js",
+		"/Users/vadim/Web/map/old stuff/components/urls/urls.service.js",
+		"/Users/vadim/Web/map/traffic/trafficpoint.js",
+		"/Users/vadim/Web/map/traffic/trafficmultiroute.html",
+		"/Users/vadim/Web/map/client/app/login/login.controller.js",
+		"/Users/vadim/Web/map/client/components/auth/auth.service.js",
+		"/Users/vadim/Web/map/client/app/city/city.js",
+		"/Users/vadim/Web/map/client/app/login/login.jade",
+		"/Users/vadim/Web/map/client/app/geojson/geojson.controller.js",
+		"/Users/vadim/Web/map/client/app/geojson/geojson.js",
+		"/Users/vadim/Web/map/client/app/app.less",
+		"/Users/vadim/Web/map/client/app/city-zone/city-zone.js",
+		"/Users/vadim/Web/map/client/app/login/login.js",
+		"/Users/vadim/Web/map/old stuff/app/account/login/login.controller.js",
+		"/Users/vadim/Web/map/client/components/zone/zone.service.js",
+		"/Users/vadim/Web/map/client/components/urls/urls.constant.js",
+		"/Users/vadim/Web/map/old stuff/components/auth/auth.service.js",
+		"/Users/vadim/Web/map/client/components/modal/modal.service.js",
+		"/Users/vadim/Web/map/client/app/main/main.js",
+		"/Users/vadim/Web/map/client/app/main/main.controller.js",
+		"/Users/vadim/Web/map/client/app/export/export.controller.js",
+		"/Users/vadim/Web/map/server/api/marker/marker.controller.js",
+		"/Users/vadim/Web/map/client/app/city/city.jade",
+		"/Users/vadim/Web/map/traffic/traffic.js",
+		"/Users/vadim/Web/node_modules/pelias-openstreetmap-polygons/config.json",
+		"/Users/vadim/Web/map/client/upload/voroneg_russia.geojson",
+		"/Users/vadim/Web/map/client/upload/russia-european-part-latest.osm.pbf-level-9.geojson",
+		"/Users/vadim/Web/map/client/upload/rostov-na-donu_russia.geojson",
+		"/Users/vadim/Web/map/client/upload/volgograd_russia.geojson",
+		"/Users/vadim/Web/map/client/app/geojson/geojson.jade",
+		"/Users/vadim/Web/map/veeroute/point.html",
+		"/Users/vadim/Web/map/veeroute/index.html",
+		"/Users/vadim/Web/map/veeroute/jam.html",
+		"/Users/vadim/Web/map/veeroute/points.html",
+		"/Users/vadim/Web/map/client/components/trafficjam/trafficjamVeeroute.service.js",
+		"/Users/vadim/Web/map/test/jam.html",
+		"/Users/vadim/Web/map/test/index.html",
+		"/Users/vadim/Web/map/test/point.html",
+		"/Users/vadim/Web/map/client/app/veeroute/point/controller.js",
+		"/Users/vadim/Web/map/test/test-1.html",
+		"/Users/vadim/Web/map/test/test.html",
+		"/Users/vadim/Downloads/UZ.exe",
+		"/Users/vadim/Web/map/client/upload/russia-european-part-latest.osm.pbf-level-8.geojson",
+		"/Users/vadim/Web/map/client/upload/russia-european-part-latest.osm.pbf-level-6.geojson",
+		"/Users/vadim/Web/map/server/polygons/controller.js",
+		"/Users/vadim/Web/map/server/routes.js",
+		"/Users/vadim/Web/map/server/polygons/index.js",
+		"/Users/vadim/Web/map/client/app/veeroute/points/controller.js",
+		"/Users/vadim/Web/map/client/upload/moscow_russia.osm.pbf",
+		"/Users/vadim/Web/map/server/config/environment/development.js",
+		"/Users/vadim/Web/map/server/config/environment/production.js",
+		"/Users/vadim/Web/node_modules/pelias-openstreetmap-polygons/app.js",
+		"/Users/vadim/Web/node_modules/pelias-openstreetmap-polygons/src/OSMAreaBuilder.js",
+		"/Users/vadim/Web/node_modules/pelias-openstreetmap-polygons/src/extractPolygons.js",
+		"/Users/vadim/Web/map/.gitignore",
+		"/Users/vadim/Web/map/Gruntfile.js",
+		"/Users/vadim/Web/map/client/saint-petersburg_russia.osm.pbf-level-8.geojson",
+		"/Users/vadim/Web/map/client/saint-petersburg_russia.osm.pbf-level-5.geojson",
+		"/Users/vadim/Web/map/test/get.js",
+		"/Users/vadim/Web/prerender/node_modules/tree-kill/index.js",
+		"/Users/vadim/Web/prerender/lib/server.js",
+		"/Users/vadim/Web/map/client/app/route/points/controller.js",
+		"/Users/vadim/Web/map/client/app/route/point/controller.js",
+		"/Users/vadim/Web/map/client/app/route/jam/controller.js",
+		"/Users/vadim/Web/map/client/app/route/index.js",
+		"/Users/vadim/Web/map/client/app/veeroute/index.js",
+		"/Users/vadim/Web/map/server/app.js",
+		"/Users/vadim/Web/map/client/app/trafficjamroute/trafficjamroute.controller.js",
+		"/Users/vadim/Web/map/client/app/veeroute/jam/controller.js",
+		"/Users/vadim/Web/map/client/app/veeroute/jam/index.jade",
+		"/Users/vadim/Web/map/client/components/trafficjam/trafficjam.service.js",
+		"/Users/vadim/Web/map/client/app/veeroute/points/index.jade",
+		"/Users/vadim/Web/map/client/app/veeroute/point/index.jade",
+		"/Users/vadim/Web/map/client/app/veeroute/route/controller.js",
+		"/Users/vadim/Web/map/client/app/veeroute/route/yatrafficroute.js",
+		"/Users/vadim/Web/map/client/app/yatrafficjam/yatrafficjam.controller.js",
+		"/Users/vadim/Web/map/client/app/traffic/traffic.controller.js",
+		"/Users/vadim/Web/map/test.html",
+		"/Users/vadim/Web/map/server/api/marker/index.js",
+		"/Users/vadim/Web/map/server/api/zone/zone.controller.js",
+		"/Users/vadim/Web/map/server/api/zone/index.js",
+		"/Users/vadim/Web/map/client/app/yatrafficpoint/yatrafficpoint.js",
+		"/Users/vadim/Web/map/client/app/yatrafficpoint/yatrafficpoint.controller.js",
+		"/Users/vadim/Downloads/install.sh",
+		"/Users/vadim/Downloads/2yalo/velomesto/velomesto/Program.cs",
+		"/Users/vadim/Downloads/2yalo/generated_data/TrackingWebServiceImplService.cs",
+		"/Users/vadim/Downloads/2yalo/velomesto/velomesto/App.config",
+		"/Users/vadim/Downloads/2yalo/velomesto/velomesto/velomesto.csproj",
+		"/Users/vadim/Downloads/2yalo/generated_data/TrackingWebServiceImplService.dll",
+		"/Users/vadim/Web/map/client/app/export/export.jade",
+		"/Users/vadim/Downloads/old/zones.json",
+		"/Users/vadim/Web/map/client/msk.json",
+		"/Users/vadim/Web/map/client/app/marker/marker.jade",
+		"/Users/vadim/Web/map/client/app/main/main.jade",
+		"/Users/vadim/Web/map/client/app/marker/marker.controller.js",
+		"/Users/vadim/Web/map/client/app/zone/zone.controller.js",
+		"/Users/vadim/Web/map/server/api/zone/zone.model.js",
+		"/Users/vadim/Web/map/server/api/traffic/traffic.controller.js",
+		"/Users/vadim/Downloads/project.sh",
+		"/Users/vadim/Web/map/client/app/traffic/traffic.jade",
+		"/Users/vadim/Web/map/client/app/matrix/matrix.controller.js",
+		"/Users/vadim/Web/map/client/app/matrix/matrix.jade",
+		"/Users/vadim/Web/map/client/app/trafficpoint/trafficpoint.controller.js",
+		"/Users/vadim/Web/map/client/app/trafficpoints/trafficpoints.controller.js",
+		"/Users/vadim/Web/map/client/app/trafficpoints/trafficpoints.js",
+		"/Users/vadim/Web/map/client/app/trafficpoints/trafficpoints.jade",
+		"/Users/vadim/Web/map/client/app/trafficjam/trafficjam.jade",
+		"/Users/vadim/Web/map/client/app/trafficjam/trafficjam.controller.js",
+		"/Users/vadim/Web/map/client/app/traffic/traffic.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"jsonpPrefix",
+			"m(",
+			"v(",
+			"v",
+			"callback",
+			"\n          state = false;",
+			"state = ",
+			"document.body.innerHTML.split(',')[1]",
+			"mdToast",
+			"getParams",
+			"logData",
+			"drawnItems",
+			"params.center_lng",
+			"params.center_lat",
+			"100",
+			"leafletPip",
+			"cors",
+			"Frutter%20%E2%80%94%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D1%84%D1%80%D1%83%D0%BA%D1%82%D0%BE%D0%B2%20%D0%B2%20%D0%BE%D1%84%D0%B8%D1%81%D1%8B%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%D0%B0._files",
+			"time",
+			"exit",
+			"stringify",
+			"resData",
+			".feature",
+			".feature.geometry",
+			"editPolygon",
+			"editZone",
+			"editPolygon",
+			"\n-",
+			"editZone",
+			"drawGeojson",
+			"editZone",
+			"successZones",
+			"setRequestHeader",
+			"page",
+			"loginPage.",
+			"editingZone",
+			"$scope",
+			"            ",
+			"           ",
+			"          ",
+			"         ",
+			"        ",
+			"       ",
+			"      ",
+			"     ",
+			"    ",
+			"   ",
+			"  ",
+			"Zone",
+			"location",
+			"rootScope",
+			"$q",
+			"location",
+			"rootScope",
+			"User",
+			"navbar",
+			"drawGeojson",
+			".feature",
+			"selectedFeature",
+			"authInterceptor",
+			"[0]",
+			"onEachFeature",
+			"cityPage",
+			".well",
+			"newCity",
+			"if ",
+			"f",
+			"min",
+			"false",
+			"drawnItems",
+			"drawControl",
+			"defaults",
+			"_lng",
+			"lng",
+			"center",
+			"Center",
+			"enter",
+			"selectedCity",
+			"points",
+			"]",
+			",\n          ",
+			"\n          ",
+			"[\n          ",
+			"\"",
+			"ln",
+			"lng",
+			"lat",
+			"\"",
+			"coord",
+			"]",
+			", ",
+			"      , ",
+			"drawControl",
+			"file",
+			"geojsonPage",
+			"document.body.innerHTML = ",
+			"arr",
+			",",
+			": ",
+			"Железнодорожный район",
+			"Ленинский район",
+			"Советский район",
+			"Левобережный район",
+			"Советский район",
+			"Ворошиловский район",
+			"Центральный район",
+			"Дзержинский район",
+			"Ворошиловский район",
+			"Советский район",
+			"Кировский район",
+			"multiRoute",
+			"markerFrom",
+			"arr",
+			"currentCity",
+			"Date",
+			"date",
+			"Date",
+			"date",
+			"requestPoint",
+			"request",
+			"drawnItems",
+			"traffic.point_to",
+			"markers",
+			"e",
+			"hex",
+			"selectedCountry",
+			"City",
+			"max_blob_header_size"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"/",
+			"",
+			"\"",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "yalo-guage.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"get",
+				"traffic/get.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "ta",
+		"selected_items":
+		[
+			[
+				"ta",
+				"~/Web/takeatrip/takeatrip.sublime-project"
+			],
+			[
+				"htf",
+				"/Applications/MAMP/htdocs/htfr/htfr.sublime-project"
+			],
+			[
+				"HT",
+				"/Applications/MAMP/htdocs/htfr/htfr.sublime-project"
+			],
+			[
+				"",
+				"~/Web/ionic/ionic.sublime-project"
+			],
+			[
+				"be",
+				"~/Web/bein/bein.sublime-project"
+			],
+			[
+				"amrl",
+				"~/Web/marlen/marlen.sublime-project"
+			],
+			[
+				"yum",
+				"~/Web/yumity/yumity.sublime-project"
+			],
+			[
+				"yumi",
+				"~/Web/yumity/yumity.sublime-project"
+			],
+			[
+				"acm",
+				"~/Web/veeroute-acm/veeroute-acm.sublime-project"
+			],
+			[
+				"yumit",
+				"~/Web/yumity/yumity.sublime-project"
+			],
+			[
+				"AC",
+				"~/Web/veeroute-acm/veeroute-acm.sublime-project"
+			],
+			[
+				"mar",
+				"~/Web/marlen/marlen.sublime-project"
+			],
+			[
+				"ber",
+				"~/Web/bein/bein.sublime-project"
+			],
+			[
+				"ver",
+				"~/Web/veeroute-acm/veeroute-acm.sublime-project"
+			],
+			[
+				"ve",
+				"~/Web/veeroute-acm/veeroute-acm.sublime-project"
+			],
+			[
+				"a",
+				"~/Web/veeroute-acm/veeroute-acm.sublime-project"
+			],
+			[
+				"vaer",
+				"~/Web/veeroute-acm/veeroute-acm.sublime-project"
+			],
+			[
+				"vee",
+				"~/Web/veeroute-acm/veeroute-acm.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 314.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
