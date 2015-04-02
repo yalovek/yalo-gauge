@@ -1,8 +1,22 @@
 :host {
   display: block;
-}
-
-:host text {
   color: #7b7b7b;
   font-family: sans-serif;
+}
+
+:host .arc {
+  stroke: #666;
+}
+
+:host .arrow-dot,
+:host .arrow {
+  fill: #3098e4;
+}
+
+:host .dot {
+  fill: #d9d9d9;
+}
+
+:host .division {
+  stroke: #8c8c8c;
 }

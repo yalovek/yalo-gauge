@@ -15,57 +15,50 @@ Element providing solution to no problem in particular.
 <polymer-element name="yalo-gauge" attributes="value scale textOutside sectors">
   <template>
     <link rel="stylesheet" href="yalo-gauge.css">
-    <svg id="gauge" style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
-      <path d="{{ pathD }}" stroke="{{ stroke }}" stroke-width="{{ strokeWidth }}" fill="none"/>
-      <circle fill="{{ fill }}" cx="{{ cx }}" cy="{{ cy }}" r="{{ dotR }}"/>
-      <polygon fill="{{ fill }}" points="{{ arrowPoints }}"/>
+    <svg id="gauge" style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="'xMidYMid meet'">
+      <path class="arc" d="{{ pathD }}" stroke-width="{{ strokeWidth }}" fill="none"/>
+      <circle class="arrow-dot" cx="{{ cx }}" cy="{{ cy }}" r="{{ dotR }}"/>
+      <polygon class="arrow" points="{{ arrowPoints }}"/>
     </svg>
   </template>
   <script>
+    var svgns = "http://www.w3.org/2000/svg";
+
     Polymer({
       width: 400,
 
       height: 350,
 
-      viewBox: '0 0 400 350',
-
-      preserveAspectRatio: 'xMidYMid meet',
-
       strokeWidth: 3,
 
-      stroke: '#666',
-
       angle: 135,
-
-      fill: '#3098e4',
-
-      cx: 200,
-
-      cy: 175,
 
       dotR: 9,
 
       value: 4,
 
-      dotsFill: '#d9d9d9',
-
       scale: 6,
-
-      divisionStorke: '#8c8c8c',
 
       fontSize: 14,
 
       textOutside: true,
 
       ready: function () {
+        var x = this.width / 2,
+            y = this.height / 2,
+            r = this.height / 2 - 50,
+            rScale = this.height / 2 - (this.textOutside ? 40 : 80),
+            scale = this.scale * 10,
+            scaleDivision = this.scale;
+
         this.viewBox = '0 0 ' + this.width + ' ' + this.height;
 
-        this.arc();
-        this.point();
-        this.arrow();
-        this.dots();
-        this.division();
-        this.text();
+        this.arc(x, y, r);
+        this.point(x, y);
+        this.arrow(x, y, rScale, scale);
+        this.dots(x, y, rScale, scale);
+        this.division(x, y, rScale, scaleDivision);
+        this.text(x, y, rScale, scaleDivision);
 
         if (typeof this.sectors !== 'undefined') {
           var sectors = JSON.parse(this.sectors);
@@ -73,16 +66,12 @@ Element providing solution to no problem in particular.
           for (var i in sectors) {
             var sector = sectors[i];
 
-            this.arcSector(sector.color, sector.start, sector.stop);
+            this.arcSector(x, y, r, scale, sector.color, sector.start, sector.stop);
           }
         }
       },
 
-      arc: function () {
-        var x = this.width / 2,
-            y = this.height / 2,
-            r = this.height / 2 - 50;
-
+      arc: function (x, y, r) {
         this.pathD = this.describeArc(x, y, r, -this.angle, this.angle);
       },
 
@@ -107,20 +96,13 @@ Element providing solution to no problem in particular.
         return d;
       },
 
-      point: function () {
-        var x = this.width / 2,
-            y = this.height / 2;
-
+      point: function (x, y) {
         this.cx = x;
         this.cy = y;
       },
 
-      arrow: function () {
-        var x = this.width / 2,
-            y = this.height / 2,
-            r = this.height / 2 - (this.textOutside ? 40 : 80),
-            scale = this.scale * 10,
-            angle = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * (this.value * 10),
+      arrow: function (x, y, r, scale) {
+        var angle = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * (this.value * 10),
             value = this.polarToCartesian(x, y, r, angle),
             centerLeft = this.polarToCartesian(x, y, this.dotR / 2, angle - 90),
             centerRight = this.polarToCartesian(x, y, this.dotR / 2, angle + 90);
@@ -128,60 +110,42 @@ Element providing solution to no problem in particular.
         this.arrowPoints = centerLeft.x + ',' + centerLeft.y + ' ' + value.x + ',' + value.y + ' ' + centerRight.x + ',' + centerRight.y;
       },
 
-      dots: function () {
-        var x = this.width / 2,
-            y = this.height / 2,
-            r = this.height / 2 - (this.textOutside ? 40 : 80),
-            scale = this.scale * 10;
-
+      dots: function (x, y, r, scale) {
         for (var i = 0; i <= scale; i++) {
-          var svgns = "http://www.w3.org/2000/svg",
-              circle = document.createElementNS(svgns, "circle"),
+          var circle = document.createElementNS(svgns, "circle"),
               dot = this.polarToCartesian(x, y, r, - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * i);
 
-          circle.setAttribute('fill', this.dotsFill);
           circle.setAttribute('cx', dot.x);
           circle.setAttribute('cy', dot.y);
           circle.setAttribute('r', 1);
+          circle.setAttribute('class', 'dot');
 
           this.$.gauge.appendChild(circle);
         }
       },
 
-      division: function () {
-        var x = this.width / 2,
-            y = this.height / 2,
-            r = this.height / 2 - (this.textOutside ? 40 : 80),
-            scale = this.scale;
-
+      division: function (x, y, r, scale) {
         for (var i = 0; i <= scale; i++) {
-          var svgns = "http://www.w3.org/2000/svg",
-              line = document.createElementNS(svgns, "line"),
+          var line = document.createElementNS(svgns, "line"),
               angle = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * i,
               start = this.polarToCartesian(x, y, r, angle),
               end = this.polarToCartesian(x, y, r + 5, angle);
 
           line.setAttribute('fill', 'none');
-          line.setAttribute('stroke', this.divisionStorke);
           line.setAttribute('stroke-width', 2);
           line.setAttribute('x1', start.x);
           line.setAttribute('y1', start.y);
           line.setAttribute('x2', end.x);
           line.setAttribute('y2', end.y);
+          line.setAttribute('class', 'division');
 
           this.$.gauge.appendChild(line);
         }
       },
 
-      text: function () {
-        var x = this.width / 2,
-            y = this.height / 2,
-            r = this.height / 2 - (this.textOutside ? 40 : 80),
-            scale = this.scale;
-
+      text: function (x, y, r, scale) {
         for (var i = 0; i <= scale; i++) {
-          var svgns = "http://www.w3.org/2000/svg",
-              text = document.createElementNS(svgns, "text"),
+          var text = document.createElementNS(svgns, "text"),
               angle = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * i,
               middle = this.polarToCartesian(x, y, r + 15, angle);
 
@@ -195,13 +159,8 @@ Element providing solution to no problem in particular.
         }
       },
 
-      arcSector: function (color, start, stop) {
-        var svgns = "http://www.w3.org/2000/svg",
-            path = document.createElementNS(svgns, "path"),
-            x = this.width / 2,
-            y = this.height / 2,
-            r = this.height / 2 - 50,
-            scale = this.scale * 10,
+      arcSector: function (x, y, r, scale, color, start, stop) {
+        var path = document.createElementNS(svgns, "path"),
             angleStart = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * (start * 10),
             angleStop = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * (stop * 10),
             d = this.describeArc(x, y, r, angleStart, angleStop);
