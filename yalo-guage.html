@@ -17,6 +17,7 @@ Element providing solution to no problem in particular.
     <link rel="stylesheet" href="yalo-guage.css">
     <svg style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
       <path d="{{ pathD }}" stroke="{{ stroke }}" stroke-width="{{ strokeWidth }}" fill="none"/>
+      <circle fill="{{ fill }}" cx="{{ cx }}" cy="{{ cy }}" r="{{ dotR }}"/>
     </svg>
   </template>
   <script>
@@ -34,6 +35,14 @@ Element providing solution to no problem in particular.
       stroke: '#666',
 
       angle: 135,
+
+      fill: '#3098e4',
+
+      cx: 200,
+
+      cy: 175,
+
+      dotR: 9,
 
       ready: function () {
         this.arc();
@@ -68,6 +77,14 @@ Element providing solution to no problem in particular.
             ].join(' ');
 
         return d;
+      },
+
+      point: function () {
+        var x = this.width / 2,
+            y = this.height / 2;
+
+        this.cx = x;
+        this.cy = y;
       }
     });
   </script>
