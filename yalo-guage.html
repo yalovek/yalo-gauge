@@ -64,6 +64,8 @@ Element providing solution to no problem in particular.
         this.dots();
         this.division();
         this.text();
+        this.arcSector('#f8a501', 4.5, 5.5);
+        this.arcSector('#f40202', 5.5, 6);
       },
 
       arc: function () {
@@ -181,6 +183,25 @@ Element providing solution to no problem in particular.
 
           this.$.guage.appendChild(text);
         }
+      },
+
+      arcSector: function (color, start, stop) {
+        var svgns = "http://www.w3.org/2000/svg",
+            path = document.createElementNS(svgns, "path"),
+            x = this.width / 2,
+            y = this.height / 2,
+            r = this.height / 2 - 50,
+            scale = this.scale * 10,
+            angleStart = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * (start * 10),
+            angleStop = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / scale) * (stop * 10),
+            d = this.describeArc(x, y, r, angleStart, angleStop);
+
+        path.setAttribute('stroke', color);
+        path.setAttribute('stroke-width', this.strokeWidth);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('d', d);
+
+        this.$.guage.appendChild(path);
       }
     });
   </script>
