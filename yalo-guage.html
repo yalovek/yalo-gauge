@@ -59,7 +59,7 @@ Element providing solution to no problem in particular.
         this.arc();
         this.point();
         this.arrow();
-        // this.dots();
+        this.dots();
         this.division();
       },
 
@@ -134,19 +134,24 @@ Element providing solution to no problem in particular.
         var x = this.width / 2,
             y = this.height / 2,
             r = this.height / 2 - 40,
-            scale = ((this.division - 1) / 10) + 1;
+            scale = ((this.scale - 1) / 10) + 1;
 
         for (var i = 0; i < scale; i++) {
           var svgns = "http://www.w3.org/2000/svg",
-              circle = document.createElementNS(svgns, "circle"),
-              dot = this.polarToCartesian(x, y, r, - this.angle + ((360 - ((360 - this.angle) - this.angle)) / (scale - 1)) * i);
+              line = document.createElementNS(svgns, "line"),
+              angle = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / (scale - 1)) * i,
+              start = this.polarToCartesian(x, y, r, angle),
+              end = this.polarToCartesian(x, y, r + 5, angle);
 
-          circle.setAttribute('fill', this.divisionStorke);
-          circle.setAttribute('cx', dot.x);
-          circle.setAttribute('cy', dot.y);
-          circle.setAttribute('r', 1);
+          line.setAttribute('fill', 'none');
+          line.setAttribute('stroke', this.divisionStorke);
+          line.setAttribute('stroke-width', 2);
+          line.setAttribute('x1', start.x);
+          line.setAttribute('y1', start.y);
+          line.setAttribute('x2', end.x);
+          line.setAttribute('y2', end.y);
 
-          this.$.guage.appendChild(circle);
+          this.$.guage.appendChild(line);
         }
       }
     });
