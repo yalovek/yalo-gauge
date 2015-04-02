@@ -12,7 +12,7 @@ Element providing solution to no problem in particular.
 @status alpha
 @homepage http://yalovek.github.io/yalo-gauge
 -->
-<polymer-element name="yalo-gauge" attributes="value scale textOutside">
+<polymer-element name="yalo-gauge" attributes="value scale textOutside sectors">
   <template>
     <link rel="stylesheet" href="yalo-gauge.css">
     <svg id="gauge" style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
@@ -66,8 +66,16 @@ Element providing solution to no problem in particular.
         this.dots();
         this.division();
         this.text();
-        this.arcSector('#f8a501', 4.5, 5.5);
-        this.arcSector('#f40202', 5.5, 6);
+
+        if (typeof this.sectors !== 'undefined') {
+          var sectors = JSON.parse(this.sectors);
+
+          for (var i in sectors) {
+            var sector = sectors[i];
+
+            this.arcSector(sector.color, sector.start, sector.stop);
+          }
+        }
       },
 
       arc: function () {
