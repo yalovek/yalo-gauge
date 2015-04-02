@@ -12,7 +12,7 @@ Element providing solution to no problem in particular.
 @status alpha
 @homepage http://yalovek.github.io/yalo-guage
 -->
-<polymer-element name="yalo-guage" attributes="">
+<polymer-element name="yalo-guage" attributes="value">
   <template>
     <link rel="stylesheet" href="yalo-guage.css">
     <svg id="guage" style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
@@ -53,6 +53,8 @@ Element providing solution to no problem in particular.
 
       divisionStorke: '#8c8c8c',
 
+      fontSize: 14,
+
       ready: function () {
         this.viewBox = '0 0 ' + this.width + ' ' + this.height;
 
@@ -61,6 +63,7 @@ Element providing solution to no problem in particular.
         this.arrow();
         this.dots();
         this.division();
+        this.text();
       },
 
       arc: function () {
@@ -152,6 +155,28 @@ Element providing solution to no problem in particular.
           line.setAttribute('y2', end.y);
 
           this.$.guage.appendChild(line);
+        }
+      },
+
+      text: function () {
+        var x = this.width / 2,
+            y = this.height / 2,
+            r = this.height / 2 - 40,
+            scale = ((this.scale - 1) / 10) + 1;
+
+        for (var i = 0; i < scale; i++) {
+          var svgns = "http://www.w3.org/2000/svg",
+              text = document.createElementNS(svgns, "text"),
+              angle = - this.angle + ((360 - ((360 - this.angle) - this.angle)) / (scale - 1)) * i,
+              middle = this.polarToCartesian(x, y, r + 15, angle);
+
+          text.setAttribute('text-anchor', 'middle');
+          text.setAttribute('x', middle.x);
+          text.setAttribute('y', middle.y + this.fontSize / 3);
+          text.setAttribute('style', 'font-size: ' + this.fontSize + 'px;');
+          text.innerHTML = i;
+
+          this.$.guage.appendChild(text);
         }
       }
     });
