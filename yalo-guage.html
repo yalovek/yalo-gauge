@@ -18,6 +18,7 @@ Element providing solution to no problem in particular.
     <svg style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
       <path d="{{ pathD }}" stroke="{{ stroke }}" stroke-width="{{ strokeWidth }}" fill="none"/>
       <circle fill="{{ fill }}" cx="{{ cx }}" cy="{{ cy }}" r="{{ dotR }}"/>
+      <polygon fill="{{ fill }}" points="{{ arrowPoints }}"/>
     </svg>
   </template>
   <script>
@@ -44,8 +45,12 @@ Element providing solution to no problem in particular.
 
       dotR: 9,
 
+      value: 45,
+
       ready: function () {
         this.arc();
+        this.point();
+        this.arrow();
       },
 
       arc: function () {
@@ -85,6 +90,17 @@ Element providing solution to no problem in particular.
 
         this.cx = x;
         this.cy = y;
+      },
+
+      arrow: function () {
+        var x = this.width / 2,
+            y = this.height / 2,
+            r = this.height / 2 - 50,
+            value = this.polarToCartesian(x, y, r + 30, this.value),
+            centerLeft = this.polarToCartesian(x, y, this.dotR / 2, this.value - 90),
+            centerRight = this.polarToCartesian(x, y, this.dotR / 2, this.value + 90);
+
+        this.arrowPoints = centerLeft.x + ',' + centerLeft.y + ' ' + value.x + ',' + value.y + ' ' + centerRight.x + ',' + centerRight.y;
       }
     });
   </script>
