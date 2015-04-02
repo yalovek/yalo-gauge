@@ -12,67 +12,62 @@ Element providing solution to no problem in particular.
 @status alpha
 @homepage http://yalovek.github.io/yalo-guage
 -->
-<polymer-element name="yalo-guage" attributes="author fancy">
+<polymer-element name="yalo-guage" attributes="">
   <template>
     <link rel="stylesheet" href="yalo-guage.css">
-    <h1>Hello from yalo-guage</h1>
-    <content></content>
+    <svg style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
+      <path d="{{ pathD }}" stroke="{{ stroke }}" stroke-width="{{ strokeWidth }}" fill="none"/>
+    </svg>
   </template>
   <script>
     Polymer({
-      /**
-       * The `author` attribute sets an initial author
-       *
-       * @attribute author
-       * @type string
-       * @default 'Dimitri Glazkov'
-       */
-      author: 'Dimitri Glazkov',
+      width: 400,
 
-      /**
-       * `fancy` is a property that does something fancy.
-       *
-       * @property fancy
-       * @type bool
-       * @default false
-       */
-      fancy: false,
+      height: 350,
+
+      viewBox: '0 0 400 350',
+
+      preserveAspectRatio: 'xMidYMid meet',
+
+      strokeWidth: 3,
+
+      stroke: '#666',
+
+      angle: 135,
 
       ready: function () {
-        // Ready is a lifecycle callback.
-        // You can do setup work in here.
-        // More info: http://www.polymer-project.org/docs/polymer/polymer.html#lifecyclemethods
+        this.arc();
       },
 
-      /**
-       * The `sayHello` method will return a greeting.
-       *
-       * @method sayHello
-       * @param {String} greeting Pass in a specific greeting.
-       * @return {String} Returns a string greeting.
-       */
-      sayHello: function (greeting) {
-        var response = greeting || 'Hello World!';
-        return 'yalo-guage says, ' + response;
+      arc: function () {
+        var x = this.width / 2,
+            y = this.height / 2,
+            r = this.height / 2 - 50;
+
+        this.viewBox = '0 0 ' + this.width + ' ' + this.height;
+
+        this.pathD = this.describeArc(x, y, r, -this.angle, this.angle);
       },
 
-      /**
-       * The `yalo-guage-lasers-success` event is fired whenever we
-       * call fireLasers.
-       *
-       * @event yalo-guage-lasers-success
-       * @param {Object} detail
-       *   @param {string} detail.sound An amazing sound.
-       */
+      polarToCartesian: function (centerX, centerY, radius, angleInDegrees) {
+        var angleInRadians = (angleInDegrees - 90) * Math.PI / 180;
 
-      /**
-       * The `fireLasers` method will fire the lasers. At least
-       * it will dispatch an event that claims lasers were fired :)
-       *
-       * @method fireLasers
-       */
-      fireLasers: function () {
-        this.fire('yalo-guage-lasers-success', { sound: 'Pew pew pew!' });
+        return {
+          x: centerX + (radius * Math.cos(angleInRadians)),
+          y: centerY + (radius * Math.sin(angleInRadians))
+        };
+      },
+
+      describeArc: function (x, y, radius, startAngle, endAngle){
+        var start = this.polarToCartesian(x, y, radius, endAngle),
+            end = this.polarToCartesian(x, y, radius, startAngle),
+            arcSweep = endAngle - startAngle <= 180 ? 0 : 1,
+            d = [
+              'M', start.x, start.y,
+              'A', radius, radius, 0, arcSweep, 0, end.x, end.y
+            ].join(' ');
+
+        return d;
       }
     });
   </script>
