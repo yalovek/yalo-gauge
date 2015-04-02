@@ -15,7 +15,7 @@ Element providing solution to no problem in particular.
 <polymer-element name="yalo-guage" attributes="">
   <template>
     <link rel="stylesheet" href="yalo-guage.css">
-    <svg style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
+    <svg id="guage" style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
       <path d="{{ pathD }}" stroke="{{ stroke }}" stroke-width="{{ strokeWidth }}" fill="none"/>
       <circle fill="{{ fill }}" cx="{{ cx }}" cy="{{ cy }}" r="{{ dotR }}"/>
       <polygon fill="{{ fill }}" points="{{ arrowPoints }}"/>
@@ -47,18 +47,26 @@ Element providing solution to no problem in particular.
 
       value: 45,
 
+      dotsFill: '#d9d9d9',
+
+      scale: 61,
+
+      divisionStorke: '#8c8c8c',
+
       ready: function () {
+        this.viewBox = '0 0 ' + this.width + ' ' + this.height;
+
         this.arc();
         this.point();
         this.arrow();
+        // this.dots();
+        this.division();
       },
 
       arc: function () {
         var x = this.width / 2,
             y = this.height / 2,
             r = this.height / 2 - 50;
-
-        this.viewBox = '0 0 ' + this.width + ' ' + this.height;
 
         this.pathD = this.describeArc(x, y, r, -this.angle, this.angle);
       },
@@ -95,12 +103,51 @@ Element providing solution to no problem in particular.
       arrow: function () {
         var x = this.width / 2,
             y = this.height / 2,
-            r = this.height / 2 - 50,
-            value = this.polarToCartesian(x, y, r + 30, this.value),
+            r = this.height / 2 - 40,
+            value = this.polarToCartesian(x, y, r, this.value),
             centerLeft = this.polarToCartesian(x, y, this.dotR / 2, this.value - 90),
             centerRight = this.polarToCartesian(x, y, this.dotR / 2, this.value + 90);
 
         this.arrowPoints = centerLeft.x + ',' + centerLeft.y + ' ' + value.x + ',' + value.y + ' ' + centerRight.x + ',' + centerRight.y;
+      },
+
+      dots: function () {
+        var x = this.width / 2,
+            y = this.height / 2,
+            r = this.height / 2 - 40;
+
+        for (var i = 0; i < this.scale; i++) {
+          var svgns = "http://www.w3.org/2000/svg",
+              circle = document.createElementNS(svgns, "circle"),
+              dot = this.polarToCartesian(x, y, r, - this.angle + ((360 - ((360 - this.angle) - this.angle)) / (this.scale - 1)) * i);
+
+          circle.setAttribute('fill', this.dotsFill);
+          circle.setAttribute('cx', dot.x);
+          circle.setAttribute('cy', dot.y);
+          circle.setAttribute('r', 1);
+
+          this.$.guage.appendChild(circle);
+        }
+      },
+
+      division: function () {
+        var x = this.width / 2,
+            y = this.height / 2,
+            r = this.height / 2 - 40,
+            scale = ((this.division - 1) / 10) + 1;
+
+        for (var i = 0; i < scale; i++) {
+          var svgns = "http://www.w3.org/2000/svg",
+              circle = document.createElementNS(svgns, "circle"),
+              dot = this.polarToCartesian(x, y, r, - this.angle + ((360 - ((360 - this.angle) - this.angle)) / (scale - 1)) * i);
+
+          circle.setAttribute('fill', this.divisionStorke);
+          circle.setAttribute('cx', dot.x);
+          circle.setAttribute('cy', dot.y);
+          circle.setAttribute('r', 1);
+
+          this.$.guage.appendChild(circle);
+        }
       }
     });
   </script>
