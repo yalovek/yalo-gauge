@@ -5,17 +5,17 @@ Element providing solution to no problem in particular.
 
 ##### Example
 
-    <yalo-guage></yalo-guage>
+    <yalo-gauge></yalo-gauge>
 
-@element yalo-guage
+@element yalo-gauge
 @blurb Element providing solution to no problem in particular.
 @status alpha
-@homepage http://yalovek.github.io/yalo-guage
+@homepage http://yalovek.github.io/yalo-gauge
 -->
-<polymer-element name="yalo-guage" attributes="value scale">
+<polymer-element name="yalo-gauge" attributes="value scale">
   <template>
-    <link rel="stylesheet" href="yalo-guage.css">
-    <svg id="guage" style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
+    <link rel="stylesheet" href="yalo-gauge.css">
+    <svg id="gauge" style="width: {{ width }}px; height: {{ height }}px;" viewBox="{{ viewBox }}" preserveAspectRatio="{{ preserveAspectRatio }}">
       <path d="{{ pathD }}" stroke="{{ stroke }}" stroke-width="{{ strokeWidth }}" fill="none"/>
       <circle fill="{{ fill }}" cx="{{ cx }}" cy="{{ cy }}" r="{{ dotR }}"/>
       <polygon fill="{{ fill }}" points="{{ arrowPoints }}"/>
@@ -134,7 +134,7 @@ Element providing solution to no problem in particular.
           circle.setAttribute('cy', dot.y);
           circle.setAttribute('r', 1);
 
-          this.$.guage.appendChild(circle);
+          this.$.gauge.appendChild(circle);
         }
       },
 
@@ -159,7 +159,7 @@ Element providing solution to no problem in particular.
           line.setAttribute('x2', end.x);
           line.setAttribute('y2', end.y);
 
-          this.$.guage.appendChild(line);
+          this.$.gauge.appendChild(line);
         }
       },
 
@@ -181,7 +181,7 @@ Element providing solution to no problem in particular.
           text.setAttribute('style', 'font-size: ' + this.fontSize + 'px;');
           text.innerHTML = i;
 
-          this.$.guage.appendChild(text);
+          this.$.gauge.appendChild(text);
         }
       },
 
@@ -201,7 +201,7 @@ Element providing solution to no problem in particular.
         path.setAttribute('fill', 'none');
         path.setAttribute('d', d);
 
-        this.$.guage.appendChild(path);
+        this.$.gauge.appendChild(path);
       }
     });
   </script>
